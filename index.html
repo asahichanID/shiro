@@ -1,20 +1,229 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uma Musume - Dunia Kuda Gadis</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uma Musume Character Explorer</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#eef4ff;
+overflow-x:hidden;
+}
+
+/* HOME */
+
+#home{
+height:100vh;
+background:url("https://images.alphacoders.com/120/1207372.jpg") center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.overlay{
+background:rgba(0,0,0,.45);
+padding:50px;
+border-radius:20px;
+text-align:center;
+backdrop-filter:blur(5px);
+}
+
+.overlay h1{
+font-size:55px;
+color:white;
+margin-bottom:15px;
+text-shadow:2px 2px 10px black;
+}
+
+.overlay p{
+color:#eee;
+font-size:18px;
+margin-bottom:30px;
+}
+
+button{
+padding:15px 40px;
+border:none;
+border-radius:50px;
+background:#ff7eb3;
+color:white;
+font-size:20px;
+cursor:pointer;
+transition:.3s;
+font-weight:bold;
+}
+
+button:hover{
+transform:scale(1.08);
+background:#ff5b99;
+}
+
+/* CHARACTER */
+
+#characters{
+display:none;
+padding:50px;
+}
+
+.title{
+text-align:center;
+font-size:40px;
+margin-bottom:40px;
+color:#444;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:270px;
+object-fit:cover;
+}
+
+.card h2{
+padding:15px;
+font-size:22px;
+text-align:center;
+}
+
+.card p{
+text-align:center;
+padding-bottom:20px;
+color:#777;
+}
+</style>
+
 </head>
 <body>
-  <div class="container">
-    <header class="hero">
-      <img src="https://raw.githubusercontent.com/asahichanID/Umaimage/main/uma/Thumbnail/oguri_thumb.png" 
-           alt="Uma Musume Preview" class="preview-img">
-      <h1 class="title">Uma Musume</h1>
-      <p class="subtitle">Di mana mimpi dan balapan bersatu</p>
-      <a href="/shiro/characters.html" class="btn-explore">Eksplorasi Karakter</a>
-    </header>
-  </div>
+
+<section id="home">
+<div class="overlay">
+<h1>Uma Musume</h1>
+<p>Character Exploration</p>
+
+<button onclick="showCharacters()">
+Explore Characters
+</button>
+</div>
+</section>
+
+<section id="characters">
+
+<div class="title">
+All Uma Musume
+</div>
+
+<div class="grid" id="grid"></div>
+
+</section>
+
+<script>
+
+const umaList = [
+
+"Special Week",
+"Silence Suzuka",
+"Tokai Teio",
+"Mejiro McQueen",
+"Gold Ship",
+"Vodka",
+"Daiwa Scarlet",
+"Oguri Cap",
+"Symboli Rudolf",
+"Rice Shower",
+"Narita Brian",
+"Biwa Hayahide",
+"Winning Ticket",
+"Air Groove",
+"Taiki Shuttle",
+"Grass Wonder",
+"El Condor Pasa",
+"Maruzensky",
+"Agnes Tachyon",
+"Manhattan Cafe",
+"Mayano Top Gun",
+"Smart Falcon",
+"TM Opera O",
+"Nice Nature",
+"Haru Urara",
+"King Halo",
+"Matikanefukukitaru",
+"Marvelous Sunday",
+"Fine Motion",
+"Kitasan Black",
+"Satono Diamond",
+"Cheval Grand",
+"Duramente",
+"T M Opera O",
+"Neo Universe",
+"Sakura Bakushin O",
+"Curren Chan",
+"Sweep Tosho",
+"Meisho Doto",
+"Admire Vega",
+"Eishin Flash",
+"Narita Taishin",
+"Super Creek",
+"Ines Fujin",
+"Seiun Sky",
+"Bamboo Memory",
+"Yaeno Muteki",
+"Copano Rickey",
+"Hokko Tarumae",
+"Wonder Acute"
+
+];
+
+const placeholder =
+"https://placehold.co/400x600/cccccc/444444?text=Coming+Soon";
+
+function showCharacters(){
+
+document.getElementById("home").style.display="none";
+
+document.getElementById("characters").style.display="block";
+
+const grid=document.getElementById("grid");
+
+umaList.forEach(name=>{
+
+grid.innerHTML+=`
+<div class="card">
+<img src="${placeholder}">
+<h2>${name}</h2>
+<p>Coming Soon</p>
+</div>
+`;
+
+});
+
+}
+
+</script>
+
 </body>
 </html>
